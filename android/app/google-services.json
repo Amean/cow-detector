@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "324461526872",
+    "project_id": "cow-detector",
+    "storage_bucket": "cow-detector.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:324461526872:android:e0b70655173c931903af2d",
+        "android_client_info": {
+          "package_name": "com.example.cow_detector"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAoU88AzhxpkvEwnNWzSZDxLa78VbWpGg0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
