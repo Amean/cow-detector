@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'firebase_options.dart';
+import 'configs/firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cow_detector/screens/home_screen.dart';
@@ -23,7 +23,7 @@ Future<void> main() async {
 final GoRouter _router = GoRouter(
   routes: <RouteBase>[
     GoRoute(
-      path: '/',
+      path: '/home',
       builder: (BuildContext context, GoRouterState state) {
         return const HomeScreen();
       },
@@ -35,7 +35,7 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/login',
+      path: '/',
       builder: (BuildContext context, GoRouterState state) {
         return const LoginScreen();
       },
