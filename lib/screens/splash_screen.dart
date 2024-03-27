@@ -1,5 +1,5 @@
+import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cow_detector/services/auth_service.dart';
 
@@ -9,23 +9,22 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  FirebaseAuth _auth = FirebaseAuth.instance;
-
   @override
   void initState() {
     super.initState();
     // Check if the user is already signed in
-    _checkCurrentUser();
+    routeUser(AuthService().isUserLoggedIn());
   }
 
-  void _checkCurrentUser() async {
-    User user = _auth.currentUser;
-    if (user != null) {
-      // User is signed in
-      context.go('/home');
+  Future<void> routeUser(bool isLoggedIn) async {
+    if (isLoggedIn) {
+      Timer(Duration(seconds: 2), () {
+        context.go('/home');
+      });
     } else {
-      // User is not signed in
-      context.go('/login');
+      Timer(Duration(seconds: 2), () {
+        context.go('/login');
+      });
     }
   }
 

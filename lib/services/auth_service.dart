@@ -91,4 +91,9 @@ class AuthService {
       logger.e(e);
     }
   }
+
+  bool isUserLoggedIn() {
+    User? user = _auth.currentUser;
+    return user != null;
+  }
 }

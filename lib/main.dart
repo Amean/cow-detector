@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:cow_detector/screens/home_screen.dart';
 import 'package:cow_detector/screens/login_screen.dart';
 import 'package:cow_detector/screens/settings_screen.dart';
+import 'package:cow_detector/screens/splash_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -35,9 +36,15 @@ final GoRouter _router = GoRouter(
       },
     ),
     GoRoute(
-      path: '/',
+      path: '/login',
       builder: (BuildContext context, GoRouterState state) {
         return const LoginScreen();
+      },
+    ),
+    GoRoute(
+      path: '/',
+      builder: (BuildContext context, GoRouterState state) {
+        return SplashScreen();
       },
     ),
   ],
