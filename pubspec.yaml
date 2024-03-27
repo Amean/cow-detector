@@ -38,6 +38,7 @@ dependencies:
   go_router: ^13.2.1
   firebase_auth: ^4.17.9
   firebase_core: ^2.27.1
+  logger: ^2.2.0
 
 dev_dependencies:
   flutter_test:
