@@ -1,5 +1,9 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:cow_detector/utils/cow_detection.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -19,7 +23,6 @@ class _HomeScreenState extends State<HomeScreen> {
           IconButton(
             icon: const Icon(
               Icons.settings,
-              //color: Colors.white,
             ),
             onPressed: () {
               context.go('/settings');
@@ -29,7 +32,12 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       body: Center(
         child: FloatingActionButton(
-          onPressed: () {},
+          onPressed: () async {
+            XFile? ximage =
+                await ImagePicker().pickImage(source: ImageSource.gallery);
+            File image = File(ximage!.path);
+            YOLODetection().detect(image);
+          },
           child: const Icon(Icons.add),
         ),
       ),
