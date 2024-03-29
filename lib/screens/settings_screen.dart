@@ -29,11 +29,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
       ),
       body: Container(
         constraints: const BoxConstraints(minWidth: 300, maxWidth: 500),
-        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 100),
+        padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 0),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.settings),
+            Center(
+              child: const Icon(
+                Icons.settings,
+                size: 60,
+              ),
+            ),
+            SizedBox(height: 20),
             Text('Email'),
+            SizedBox(height: 20),
             if (!isEditingEmail)
               Row(
                 children: [
@@ -67,7 +75,9 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   ),
                 ],
               ),
+            SizedBox(height: 20),
             Text('Password'),
+            SizedBox(height: 20),
             if (!isEditingPassword)
               Row(
                 children: [
@@ -102,14 +112,18 @@ class _SettingsScreenState extends State<SettingsScreen> {
                 ],
               ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _auth.signOut(),
-              child: const Text('Log Out'),
+            Center(
+              child: ElevatedButton(
+                onPressed: () => _auth.signOut(),
+                child: const Text('Log Out'),
+              ),
             ),
             SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () => _auth.deleteAccount(),
-              child: const Text('Delete Account'),
+            Center(
+              child: ElevatedButton(
+                onPressed: () => _auth.deleteAccount(),
+                child: const Text('Delete Account'),
+              ),
             ),
           ],
         ),
