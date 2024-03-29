@@ -22,6 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text('CowDetector'),
         actions: <Widget>[
           IconButton(
             icon: const Icon(
