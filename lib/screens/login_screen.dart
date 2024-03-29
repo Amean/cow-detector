@@ -74,8 +74,11 @@ class _LoginScreenState extends State<LoginScreen> {
                 if (_formKey.currentState!.validate()) {
                   // If the form is valid, save the value.
                   _formKey.currentState!.save();
-                  await AuthService()
+                  final usercred = await AuthService()
                       .signInWithEmailAndPassword(_email, _password);
+                  if (usercred != null) {
+                    context.go('/home');
+                  }
                 }
               },
               child: const Text('Login'),
