@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'configs/firebase_options.dart';
+import 'firebase_options.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:go_router/go_router.dart';
 import 'package:cow_detector/screens/home_screen.dart';
 import 'package:cow_detector/screens/login_screen.dart';
 import 'package:cow_detector/screens/settings_screen.dart';
 import 'package:cow_detector/screens/splash_screen.dart';
+import 'package:cow_detector/screens/signup_screen.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
+    options: DefaultFirebaseOptions.ios,
   );
 
 // Ideal time to initialize
-  await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  try {
+    await FirebaseAuth.instance.useAuthEmulator('localhost', 9099);
+  } catch (e) {
+    print(e);
+  }
 //...
 
   runApp(const CowDetectorApp());
@@ -39,6 +44,12 @@ final GoRouter _router = GoRouter(
       path: '/login',
       builder: (BuildContext context, GoRouterState state) {
         return const LoginScreen();
+      },
+    ),
+    GoRoute(
+      path: '/signup',
+      builder: (BuildContext context, GoRouterState state) {
+        return const SignUpScreen();
       },
     ),
     GoRoute(
